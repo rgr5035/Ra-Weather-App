@@ -1,0 +1,10 @@
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: rgb(175, 233, 233);
+}
+
+header {
+  color: antiquewhite;
+  font-size: 50px;
+  text-align: center;
+}
