@@ -13,7 +13,6 @@ header {
   margin-top: 20px;
 }
 
-/* 
-.city-search {
-  padding-bottom: 500px;
-} */
+.hide {
+  display: none;
+}

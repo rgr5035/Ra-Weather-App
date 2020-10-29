@@ -45,10 +45,13 @@
         </div>
     </article>
     <aticle class="col-md-8"> 
-        <div class="shadow p-3 mb-5 card">
+        <div class="shadow p-3 mb-5 card hide" id="current-weather-card">
             <div class="card-body">
-                <h2 class="card-title" id="city-search-term">City Name and Date</h2>
-                <ul class="card-text">Weather information here</ul>
+                <h2 class="card-title" id="city-search-term"></h2>
+                <h5 class="card-text" id="temperature"></h5>
+                <h5 class="card-text" id="humidity"></h5>
+                <h5 class="card-text" id="wind-speed"></h5>
+                <h5 class="card-text" id="uv-index"></h5>
             </div>
         </div>
     </article>
@@ -58,8 +61,8 @@
 </main>
 
 
-
-
+<!--External link to Moment.js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
 <!--External link to JS-->
 <script src="script.js" rel="stylesheet"></script>    
