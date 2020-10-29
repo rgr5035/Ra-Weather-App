@@ -29,10 +29,33 @@
     <title>Weather Dashboard</title>
 </head>
 <body>
-<header class="bg-dark">
+<header class="shadow p-3 mb-5 bg-dark">
     Weather Dashboard
 </header>
+<main class="container">
 
+<section class="row">
+    <article class="col-md-4">
+        <div class="shadow p-3 mb-5 card">
+            <form class="card-body" id="city-form">
+                <h5 class="card-title">Search for a City</h5>
+                <input class="card-text" id="city-input" placeholder="City Name"</input>
+                <button type="submit" class="btn btn-primary fas fa-search" id="search-btn"></button>
+            </form>
+        </div>
+    </article>
+    <aticle class="col-md-8"> 
+        <div class="shadow p-3 mb-5 card">
+            <div class="card-body">
+                <h2 class="card-title">City Name and Date</h2>
+                <ul class="card-text">Weather information here</ul>
+            </div>
+        </div>
+    </article>
+</section>
+
+
+</main>
 
 
 

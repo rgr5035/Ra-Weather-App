@@ -8,3 +8,12 @@ header {
   font-size: 50px;
   text-align: center;
 }
+
+.container {
+  margin-top: 20px;
+}
+
+/* 
+.city-search {
+  padding-bottom: 500px;
+} */
