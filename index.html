@@ -32,7 +32,7 @@
 <header class="shadow p-3 mb-5 bg-dark">
     Weather Dashboard
 </header>
-<main class="container">
+<main class="container-fluid">
 
 <section class="row">
     <article class="col-md-4">
@@ -43,18 +43,100 @@
                 <button type="submit" class="btn btn-primary fas fa-search" id="search-btn"></button>
             </form>
         </div>
+      <div>City List</div>  
     </article>
     <aticle class="col-md-8"> 
         <div class="shadow p-3 mb-5 card hide" id="current-weather-card">
             <div class="card-body">
-                <h2 class="card-title" id="city-search-term"></h2>
+                <h2 class="card-title">
+                    <span id="city-search-term"></span>
+                    <img id="icon-img"></img>
+                </h2>
                 <h5 class="card-text" id="temperature"></h5>
                 <h5 class="card-text" id="humidity"></h5>
                 <h5 class="card-text" id="wind-speed"></h5>
                 <h5 class="card-text" id="uv-index"></h5>
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                            content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+<div class="col">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+</div>
+<div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                            content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+         <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                            content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>   
+         <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                            content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>   
+        </div>
     </article>
+</section>
+
+<section class="row">
+
+    <!--Empty div to append the saved cities as a list below search area(NEED TO LEARN HOW)-->
+    <article class="col-md-4" id="saved-cities">
+        
+    </article>
+
+    <!--Empty div to append 5-day forecast as separate cards below current weather card(NEED TO LEARN HOW)-->
+    <article class="col-md-8" id="five-day-forecast-card">
+
+    </article>
+
+
+
 </section>
 
 
