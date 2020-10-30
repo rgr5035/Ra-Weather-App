@@ -83,7 +83,7 @@ var getCityInput = function (city) {
                 uvindexEL.classList.add("bad");
               } else if (datatwo.value <= 2) {
                 uvindexEL.classList.add("good");
-              } else if (datatwo.value >= 2.1 || datatwo.value <= 5) {
+              } else if (datatwo.value >= 2.1 && datatwo.value <= 5) {
                 uvindexEL.classList.add("average");
               }
             });
