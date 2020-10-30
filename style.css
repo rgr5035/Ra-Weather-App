@@ -16,3 +16,21 @@ header {
 .hide {
   display: none;
 }
+
+.good {
+  background-color: #77dd77;
+  color: white;
+  border-radius: 3px;
+}
+
+.bad {
+  background-color: #ff6961;
+  color: white;
+  border-radius: 3px;
+}
+
+.average {
+  background-color: rgb(223, 185, 60);
+  color: white;
+  border-radius: 3px;
+}

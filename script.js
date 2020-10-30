@@ -78,6 +78,14 @@ var getCityInput = function (city) {
                 "&lon=" +
                 cityLon +
                 "&appid=cb9f638b983772109f5be92fa81ecd11";
+
+              if (datatwo.value >= 5.1) {
+                uvindexEL.classList.add("bad");
+              } else if (datatwo.value <= 2) {
+                uvindexEL.classList.add("good");
+              } else if (datatwo.value >= 2.1 || datatwo.value <= 5) {
+                uvindexEL.classList.add("average");
+              }
             });
           }
         });
