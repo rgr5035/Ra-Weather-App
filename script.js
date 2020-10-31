@@ -17,7 +17,7 @@ submitCity = function (e) {
 
   if (cityInput) {
     getCityInput(cityInput);
-    getfivedayInput(cityInput);
+    // getfivedayInput(cityInput);
   }
 };
 
@@ -54,6 +54,26 @@ var getCityInput = function (city) {
 
               icon = "http://openweathermap.org/img/wn/" + getIcon + "@2x.png";
 
+              fivedayapiURL =
+                "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+                cityLat +
+                "&lon=" +
+                cityLon +
+                "&exclude=current,hourly,minutely,alerts&units=imperial&appid=cb9f638b983772109f5be92fa81ecd11";
+
+              fetch(fivedayapiURL).then(function (response) {
+                if (response.ok) {
+                  console.log(response);
+                  response.json().then(function (datathree) {
+                    console.log(datathree);
+
+                    //FOR LOOP FOR DATA I NEED IN URL
+
+                    for (var i = 0; i < datathree.length; i++) {}
+                  });
+                }
+              });
+
               currentweathercardEl.classList.remove("hide");
               citynamesearchEl.textContent =
                 data.name + ": " + moment().format("dddd, MMMM Do YYYY");
@@ -72,13 +92,6 @@ var getCityInput = function (city) {
                 "Wind Speed: " + data.wind.speed + " MPH";
               uvindexEL.textContent = datatwo.value;
 
-              uvindexapiURL =
-                "http://api.openweathermap.org/data/2.5/uvi?lat=" +
-                cityLat +
-                "&lon=" +
-                cityLon +
-                "&appid=cb9f638b983772109f5be92fa81ecd11";
-
               if (datatwo.value >= 5.1) {
                 uvindexEL.classList.add("bad");
               } else if (datatwo.value <= 2) {
@@ -94,22 +107,24 @@ var getCityInput = function (city) {
   });
 };
 
-var getfivedayInput = function (city) {
-  fivedayapiURL =
-    "https://api.openweathermap.org/data/2.5/forecast?q=" +
-    city +
-    "&units=imperial&&appid=cb9f638b983772109f5be92fa81ecd11";
+// var getfivedayInput = function (city) {
+//   fivedayapiURL =
+//     "https://api.openweathermap.org/data/2.5/forecast?q=" +
+//     city +
+//     "&units=imperial&&appid=cb9f638b983772109f5be92fa81ecd11";
 
-  fetch(fivedayapiURL).then(function (response) {
-    if (response.ok) {
-      console.log(response);
-      response.json().then(function (datathree) {
-        console.log(datathree);
+//   fetch(fivedayapiURL).then(function (response) {
+//     if (response.ok) {
+//       console.log(response);
+//       response.json().then(function (datathree) {
+//         console.log(datathree);
 
-        //FOR LOOP FOR DATA I NEED IN URL
-      });
-    }
-  });
-};
+//         //FOR LOOP FOR DATA I NEED IN URL
+
+//         for (var i = 0; i < datathree.length; i++) {}
+//       });
+//     }
+//   });
+// };
 
 cityButtonEl.addEventListener("click", submitCity);
