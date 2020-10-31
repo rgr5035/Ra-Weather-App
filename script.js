@@ -70,7 +70,7 @@ var getCityInput = function (city) {
                 "Humidity: " + data.main.humidity + "%";
               windspeedsearchEL.textContent =
                 "Wind Speed: " + data.wind.speed + " MPH";
-              uvindexEL.textContent = "UV Index: " + datatwo.value;
+              uvindexEL.textContent = datatwo.value;
 
               uvindexapiURL =
                 "http://api.openweathermap.org/data/2.5/uvi?lat=" +
