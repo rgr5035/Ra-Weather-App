@@ -11,7 +11,6 @@ var uvindexEL = document.getElementById("uv-index");
 
 submitCity = function (e) {
   e.preventDefault();
-  console.log("clicked");
 
   var cityInput = cityInputEl.value.trim();
 
@@ -29,10 +28,7 @@ var getCityInput = function (city) {
 
   fetch(currentWeatherapiURL).then(function (response) {
     if (response.ok) {
-      console.log(response);
       response.json().then(function (data) {
-        console.log(data);
-
         var cityLat = data.coord.lat;
         var cityLon = data.coord.lon;
 
@@ -45,12 +41,8 @@ var getCityInput = function (city) {
 
         fetch(uvindexapiURL).then(function (response) {
           if (response.ok) {
-            console.log(response);
             response.json().then(function (datatwo) {
-              console.log(datatwo);
-
               var getIcon = data.weather[0].icon;
-              console.log(getIcon);
 
               icon = "http://openweathermap.org/img/wn/" + getIcon + "@2x.png";
 
@@ -67,9 +59,81 @@ var getCityInput = function (city) {
                   response.json().then(function (datathree) {
                     console.log(datathree);
 
-                    //FOR LOOP FOR DATA I NEED IN URL
+                    var fivedayDiv = document.getElementById("five-day-cards");
+                    var fiveDays = [];
 
-                    for (var i = 0; i < datathree.length; i++) {}
+                    for (var i = 1; i < 6; i++) {
+                      var dayColumnsEl = document.createElement("div");
+                      dayColumnsEl.classList = "col";
+
+                      var dayCardsEl = document.createElement("div");
+                      dayCardsEl.classList =
+                        "card card-body text-white bg-info shadow";
+
+                      var dayDateEl = document.createElement("h5");
+                      dayDateEl.classList = "card-title";
+
+                      var fivedayIconEl = document.createElement("img");
+
+                      var dayTempEl = document.createElement("h6");
+                      dayTempEl.classList = "card-subtitle mb-2";
+
+                      var dayHumidEl = document.createElement("h6");
+                      dayHumidEl.classList = "card-subtitle mb-2";
+
+                      var getfivedayIcon = datathree.daily[i].weather[0].icon;
+                      console.log(getfivedayIcon);
+
+                      fivedayIcon =
+                        "http://openweathermap.org/img/wn/" +
+                        getfivedayIcon +
+                        "@2x.png";
+
+                      dayDateEl.textContent = moment
+                        .unix(datathree.daily[i].dt)
+                        .format("MM/DD/YYYY");
+                      console.log(dayDateEl);
+
+                      fivedayIconEl.setAttribute("src", fivedayIcon);
+
+                      dayTempEl.textContent =
+                        "Temp: " +
+                        datathree.daily[i].temp.day +
+                        String.fromCharCode(176) +
+                        "F";
+
+                      dayHumidEl.textContent =
+                        "Humidity: " + datathree.daily[i].humidity;
+
+                      fivedayDiv.appendChild(dayColumnsEl);
+                      dayColumnsEl.appendChild(dayCardsEl);
+                      dayCardsEl.appendChild(dayDateEl);
+                      dayCardsEl.appendChild(fivedayIconEl);
+                      dayCardsEl.appendChild(dayTempEl);
+                      dayCardsEl.appendChild(dayHumidEl);
+
+                      fiveDays.push(dayCardsEl);
+                    }
+
+                    // var getonedayIcon = datathree.daily[1].weather[0].icon;
+                    // console.log(getonedayIcon);
+
+                    // onedayIcon =
+                    //   "http://openweathermap.org/img/wn/" +
+                    //   getonedayIcon +
+                    //   "@2x.png";
+
+                    // fivedayCardEl.classList.remove("hide");
+                    // onedayiconimgEl.setAttribute("src", onedayIcon);
+                    // onedayTempEl.textContent =
+                    //   "Temp: " +
+                    //   datathree.daily[1].temp.day +
+                    //   " " +
+                    //   String.fromCharCode(176) +
+                    //   "F";
+                    // onedayHumidEl.textContent =
+                    //   "Humidity: " + datathree.daily[1].humidity + "%";
+                    //FOR LOOP FOR DATA I NEED IN URL
                   });
                 }
               });
@@ -106,25 +170,5 @@ var getCityInput = function (city) {
     }
   });
 };
-
-// var getfivedayInput = function (city) {
-//   fivedayapiURL =
-//     "https://api.openweathermap.org/data/2.5/forecast?q=" +
-//     city +
-//     "&units=imperial&&appid=cb9f638b983772109f5be92fa81ecd11";
-
-//   fetch(fivedayapiURL).then(function (response) {
-//     if (response.ok) {
-//       console.log(response);
-//       response.json().then(function (datathree) {
-//         console.log(datathree);
-
-//         //FOR LOOP FOR DATA I NEED IN URL
-
-//         for (var i = 0; i < datathree.length; i++) {}
-//       });
-//     }
-//   });
-// };
 
 cityButtonEl.addEventListener("click", submitCity);
