@@ -9,11 +9,28 @@ var humiditysearchEL = document.getElementById("humidity");
 var windspeedsearchEL = document.getElementById("wind-speed");
 var uvindexEL = document.getElementById("uv-index");
 var forecastTitleEl = document.getElementById("forecast-title");
+var mainArtcicleEl = document.getElementById("main-article");
 
 submitCity = function (e) {
   e.preventDefault();
 
   var cityInput = cityInputEl.value.trim();
+  localStorage.setItem("city", cityInput);
+
+  var savedCityCard = document.createElement("div");
+  savedCityCard.classList = "card";
+
+  var savedCityList = document.createElement("ul");
+  savedCityList.classList = "list-group list-group-flush";
+
+  var savedCityBtn = document.createElement("button");
+  savedCityBtn.classList = "list-group-item";
+
+  savedCityBtn.textContent = localStorage.getItem("city");
+
+  mainArtcicleEl.appendChild(savedCityCard);
+  savedCityCard.appendChild(savedCityList);
+  savedCityList.appendChild(savedCityBtn);
 
   if (cityInput) {
     getCityInput(cityInput);
@@ -83,7 +100,6 @@ var getCityInput = function (city) {
                       dayHumidEl.classList = "card-subtitle mb-2";
 
                       var getfivedayIcon = datathree.daily[i].weather[0].icon;
-                      console.log(getfivedayIcon);
 
                       fivedayIcon =
                         "http://openweathermap.org/img/wn/" +
@@ -95,7 +111,6 @@ var getCityInput = function (city) {
                       dayDateEl.textContent = moment
                         .unix(datathree.daily[i].dt)
                         .format("MM/DD/YYYY");
-                      console.log(dayDateEl);
 
                       fivedayIconEl.setAttribute("src", fivedayIcon);
 
@@ -155,3 +170,7 @@ var getCityInput = function (city) {
 };
 
 cityButtonEl.addEventListener("click", submitCity);
+
+// var savedBtnEl = document.querySelectorAll("#saved-btn");
+
+// savedBtnEl.addEventListener("click", submitCity);
