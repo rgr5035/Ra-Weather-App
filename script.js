@@ -8,6 +8,7 @@ var tempsearchEl = document.getElementById("temperature");
 var humiditysearchEL = document.getElementById("humidity");
 var windspeedsearchEL = document.getElementById("wind-speed");
 var uvindexEL = document.getElementById("uv-index");
+var forecastTitleEl = document.getElementById("forecast-title");
 
 submitCity = function (e) {
   e.preventDefault();
@@ -16,7 +17,6 @@ submitCity = function (e) {
 
   if (cityInput) {
     getCityInput(cityInput);
-    // getfivedayInput(cityInput);
   }
 };
 
@@ -62,6 +62,7 @@ var getCityInput = function (city) {
                     var fivedayDiv = document.getElementById("five-day-cards");
                     var fiveDays = [];
 
+                    // fivedayDiv.removeChild(dayColumnsEl);
                     for (var i = 1; i < 6; i++) {
                       var dayColumnsEl = document.createElement("div");
                       dayColumnsEl.classList = "col";
@@ -89,6 +90,8 @@ var getCityInput = function (city) {
                         getfivedayIcon +
                         "@2x.png";
 
+                      forecastTitleEl.classList.remove("hide");
+
                       dayDateEl.textContent = moment
                         .unix(datathree.daily[i].dt)
                         .format("MM/DD/YYYY");
@@ -103,7 +106,7 @@ var getCityInput = function (city) {
                         "F";
 
                       dayHumidEl.textContent =
-                        "Humidity: " + datathree.daily[i].humidity;
+                        "Humidity: " + datathree.daily[i].humidity + "%";
 
                       fivedayDiv.appendChild(dayColumnsEl);
                       dayColumnsEl.appendChild(dayCardsEl);
@@ -114,26 +117,6 @@ var getCityInput = function (city) {
 
                       fiveDays.push(dayCardsEl);
                     }
-
-                    // var getonedayIcon = datathree.daily[1].weather[0].icon;
-                    // console.log(getonedayIcon);
-
-                    // onedayIcon =
-                    //   "http://openweathermap.org/img/wn/" +
-                    //   getonedayIcon +
-                    //   "@2x.png";
-
-                    // fivedayCardEl.classList.remove("hide");
-                    // onedayiconimgEl.setAttribute("src", onedayIcon);
-                    // onedayTempEl.textContent =
-                    //   "Temp: " +
-                    //   datathree.daily[1].temp.day +
-                    //   " " +
-                    //   String.fromCharCode(176) +
-                    //   "F";
-                    // onedayHumidEl.textContent =
-                    //   "Humidity: " + datathree.daily[1].humidity + "%";
-                    //FOR LOOP FOR DATA I NEED IN URL
                   });
                 }
               });
