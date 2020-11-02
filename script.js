@@ -11,12 +11,14 @@ var uvindexEL = document.getElementById("uv-index");
 var forecastTitleEl = document.getElementById("forecast-title");
 var mainArtcicleEl = document.getElementById("main-article");
 
+//function that is called when cityButtonEl event handler is clicked to generate city's specific weather information
 submitCity = function (e) {
   e.preventDefault();
 
   var cityInput = cityInputEl.value.trim();
   localStorage.setItem("city", cityInput);
 
+  //creating elements for saved city searches to generate below city button
   var savedCityCard = document.createElement("div");
   savedCityCard.classList = "card";
 
@@ -28,6 +30,7 @@ submitCity = function (e) {
 
   savedCityBtn.textContent = localStorage.getItem("city");
 
+  //appending elements to parent elements in HTML
   mainArtcicleEl.appendChild(savedCityCard);
   savedCityCard.appendChild(savedCityList);
   savedCityList.appendChild(savedCityBtn);
@@ -37,18 +40,22 @@ submitCity = function (e) {
   }
 };
 
+//function that generates city-specific information which is run inside submitCity function
 var getCityInput = function (city) {
+  //API URL to pull information based on city entered
   currentWeatherapiURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
     "&units=imperial&appid=cb9f638b983772109f5be92fa81ecd11";
 
+  //API call for current weather generated inside current weather card
   fetch(currentWeatherapiURL).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
         var cityLat = data.coord.lat;
         var cityLon = data.coord.lon;
 
+        //API URL to pull information for UV index based on the city entered
         uvindexapiURL =
           "http://api.openweathermap.org/data/2.5/uvi?lat=" +
           cityLat +
@@ -56,6 +63,7 @@ var getCityInput = function (city) {
           cityLon +
           "&appid=cb9f638b983772109f5be92fa81ecd11";
 
+        //API Call for UV Index of city entered
         fetch(uvindexapiURL).then(function (response) {
           if (response.ok) {
             response.json().then(function (datatwo) {
@@ -63,6 +71,7 @@ var getCityInput = function (city) {
 
               icon = "http://openweathermap.org/img/wn/" + getIcon + "@2x.png";
 
+              //API URL for five-day forecast based on city entered
               fivedayapiURL =
                 "https://api.openweathermap.org/data/2.5/onecall?lat=" +
                 cityLat +
@@ -70,6 +79,7 @@ var getCityInput = function (city) {
                 cityLon +
                 "&exclude=current,hourly,minutely,alerts&units=imperial&appid=cb9f638b983772109f5be92fa81ecd11";
 
+              //API Call to generate five-day forecast based on city entered
               fetch(fivedayapiURL).then(function (response) {
                 if (response.ok) {
                   console.log(response);
@@ -79,8 +89,10 @@ var getCityInput = function (city) {
                     var fivedayDiv = document.getElementById("five-day-cards");
                     var fiveDays = [];
 
-                    // fivedayDiv.removeChild(dayColumnsEl);
+                    fivedayDiv.innerHTML = "";
+
                     for (var i = 1; i < 6; i++) {
+                      //creating elements for five-day forecast to generate in the empty div in HTML
                       var dayColumnsEl = document.createElement("div");
                       dayColumnsEl.classList = "col";
 
@@ -108,6 +120,7 @@ var getCityInput = function (city) {
 
                       forecastTitleEl.classList.remove("hide");
 
+                      //setting text content for requested city stats for five-day forecast
                       dayDateEl.textContent = moment
                         .unix(datathree.daily[i].dt)
                         .format("MM/DD/YYYY");
@@ -138,6 +151,8 @@ var getCityInput = function (city) {
               });
 
               currentweathercardEl.classList.remove("hide");
+
+              //setting text content for requested city stats for current weather
               citynamesearchEl.textContent =
                 data.name + ": " + moment().format("dddd, MMMM Do YYYY");
 
@@ -155,6 +170,7 @@ var getCityInput = function (city) {
                 "Wind Speed: " + data.wind.speed + " MPH";
               uvindexEL.textContent = datatwo.value;
 
+              //generating a color background for UV Index based on the severity of UV Index to generate in current weather
               if (datatwo.value >= 5.1) {
                 uvindexEL.classList.add("bad");
               } else if (datatwo.value <= 2) {
@@ -170,8 +186,5 @@ var getCityInput = function (city) {
   });
 };
 
+//event handler for city search button to generate weather information
 cityButtonEl.addEventListener("click", submitCity);
-
-// var savedBtnEl = document.querySelectorAll("#saved-btn");
-
-// savedBtnEl.addEventListener("click", submitCity);
