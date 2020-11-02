@@ -34,3 +34,7 @@ header {
   color: white;
   border-radius: 3px;
 }
+
+.icon-size {
+  width: 50%;
+}

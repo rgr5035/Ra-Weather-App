@@ -104,6 +104,7 @@ var getCityInput = function (city) {
                       dayDateEl.classList = "card-title";
 
                       var fivedayIconEl = document.createElement("img");
+                      fivedayIconEl.classList = "icon-size";
 
                       var dayTempEl = document.createElement("h6");
                       dayTempEl.classList = "card-subtitle mb-2";
@@ -137,6 +138,7 @@ var getCityInput = function (city) {
                       dayHumidEl.textContent =
                         "Humidity: " + datathree.daily[i].humidity + "%";
 
+                      //appending elements to parent elements in HTML
                       fivedayDiv.appendChild(dayColumnsEl);
                       dayColumnsEl.appendChild(dayCardsEl);
                       dayCardsEl.appendChild(dayDateEl);
