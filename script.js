@@ -117,6 +117,7 @@ var getCityInput = function (city) {
                       dayTempEl.textContent =
                         "Temp: " +
                         datathree.daily[i].temp.day +
+                        " " +
                         String.fromCharCode(176) +
                         "F";
 
