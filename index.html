@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
     <!--External link to Google Fonts-->    
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 
@@ -30,11 +29,16 @@
     <title>Weather Dashboard</title>
 </head>
 <body>
+
+<!--Header div with title included-->    
 <header class="shadow p-3 mb-5 bg-dark">
     Weather Dashboard
 </header>
+
+<!--Container with card elements for HTML body content-->
 <main class="container-fluid">
 
+<!--First row in container which holds search button and current weather cards-->    
 <section class="row">
     <article class="col-md-4" id="main-article">
         <div class="shadow p-3 mb-5 card">
@@ -61,9 +65,12 @@
                     </h5>
             </div>
         </div>
+
+        <!--Row Div for Five Day Forecast text-->
         <div class="row hide" id="forecast-title">
             <h2>Five Day Forecast:</h2>
         </div>
+
         <!--Empty row div where five-day forecast cards will be appended to-->
         <div class="row" id="five-day-cards">
         </div>
