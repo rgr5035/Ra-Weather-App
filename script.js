@@ -57,7 +57,7 @@ var getCityInput = function (city) {
 
         //API URL to pull information for UV index based on the city entered
         uvindexapiURL =
-          "http://api.openweathermap.org/data/2.5/uvi?lat=" +
+          "https://api.openweathermap.org/data/2.5/uvi?lat=" +
           cityLat +
           "&lon=" +
           cityLon +
