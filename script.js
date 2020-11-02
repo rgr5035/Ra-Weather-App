@@ -26,7 +26,7 @@ submitCity = function (e) {
   savedCityList.classList = "list-group list-group-flush";
 
   var savedCityBtn = document.createElement("button");
-  savedCityBtn.classList = "list-group-item";
+  savedCityBtn.classList = "list-group-item saved-btn";
 
   savedCityBtn.textContent = localStorage.getItem("city");
 
@@ -38,6 +38,12 @@ submitCity = function (e) {
   if (cityInput) {
     getCityInput(cityInput);
   }
+
+  //new event handler to re-generate weather data for a saved city from list
+  document.querySelector(".saved-btn").onclick = function (event) {
+    let previousCity = event.target.textContent;
+    getCityInput(previousCity);
+  };
 };
 
 //function that generates city-specific information which is run inside submitCity function
