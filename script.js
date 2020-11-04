@@ -10,13 +10,43 @@ var windspeedsearchEL = document.getElementById("wind-speed");
 var uvindexEL = document.getElementById("uv-index");
 var forecastTitleEl = document.getElementById("forecast-title");
 var mainArtcicleEl = document.getElementById("main-article");
+var history = localStorage.getItem("cities");
+
+if (history !== null) {
+  for (var i = 0; i < history.length; i++) {
+    var savedCityBtn = document.createElement("button");
+    savedCityBtn.classList = "list-group-item saved-btn";
+  }
+
+  var historyEl = document.querySelectorAll(".saved-btn");
+  console.log(historyEl);
+
+  for (var i = 0; i < historyEl.length; i++) {
+    historyEl[i].onclick = function (event) {
+      event.preventDefault();
+      let previousCity = event.target.textContent;
+      getCityInput(previousCity);
+      console.log(historyEl);
+    };
+  }
+}
 
 //function that is called when cityButtonEl event handler is clicked to generate city's specific weather information
 submitCity = function (e) {
   e.preventDefault();
+  history = localStorage.getItem("cities");
+  if (history !== null) {
+    cities = history;
+    console.log("starting with null", history);
+  }
 
   var cityInput = cityInputEl.value.trim();
-  localStorage.setItem("city", cityInput);
+  var cities = [];
+
+  cities.push(cityInput);
+  console.log("cities", cities);
+
+  localStorage.setItem("cities", cities);
 
   //creating elements for saved city searches to generate below city button
   var savedCityCard = document.createElement("div");
@@ -28,7 +58,7 @@ submitCity = function (e) {
   var savedCityBtn = document.createElement("button");
   savedCityBtn.classList = "list-group-item saved-btn";
 
-  savedCityBtn.textContent = localStorage.getItem("city");
+  savedCityBtn.textContent = localStorage.getItem("cities");
 
   //appending elements to parent elements in HTML
   mainArtcicleEl.appendChild(savedCityCard);
@@ -39,11 +69,17 @@ submitCity = function (e) {
     getCityInput(cityInput);
   }
 
-  //new event handler to re-generate weather data for a saved city from list
-  document.querySelector(".saved-btn").onclick = function (event) {
-    let previousCity = event.target.textContent;
-    getCityInput(previousCity);
-  };
+  var historyEl = document.querySelectorAll(".saved-btn");
+  console.log(historyEl);
+
+  for (var i = 0; i < historyEl.length; i++) {
+    historyEl[i].onclick = function (event) {
+      event.preventDefault();
+      let previousCity = event.target.textContent;
+      getCityInput(previousCity);
+      console.log(historyEl);
+    };
+  }
 };
 
 //function that generates city-specific information which is run inside submitCity function
