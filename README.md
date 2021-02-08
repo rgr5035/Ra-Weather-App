@@ -10,35 +10,25 @@ This is a weather forecast application that allows the user to search for curren
 
 * [Installation](#installation)
 * [Usage](#usage)
-* [Credits](#credits)
+* [Screenshot](#screenshot)
 * [Contributing](#contributing)
-* [Tests](#tests)
-* [License](#license)
 * [Questions](#questions)
 
 ## Installation
 
-Please follow the live site link to view the application: 
+Please follow the live site link to view the application: https://rgr5035.github.io/Ray-Weather-App/
 
 ## Usage
 
 As a user, you can use the search text area to look up the U.S. city of your choice. Once the disired city is entered, the user will receive a snapshot of the current weather, as well as a five-day forecast. Once the user searches for a city, it is saved in an unordered list, where the user can click on previously searched cities to return to their specific weather conditions. 
 
-## Credits
+## Screenshot
 
-undefined
+![Weather-App](https://user-images.githubusercontent.com/70773240/107284593-4806d280-6a1b-11eb-8a5a-4e769975ddaa.png)
 
 ## Contributing
 
 Please send any contributions to Robby Ray (contact information below)
-
-## Tests
-
-N/A
-
-## License
-
-This project is MIT licensed.
 
 ## Questions
 
