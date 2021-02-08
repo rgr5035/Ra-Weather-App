@@ -1,26 +1,48 @@
-# Ray-Weather-App
+# Weather Dashboard
 
-Assignment Overview
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-    This was quite the difficult assignment, and in the same week as project time! We were tasked with creating a weather app for searched cities to generate current weather data and a five-day forecast of the searched city. Along with this, your saved searches were to generate, and you can click on these again to go back to that selected city's information.
+## Description
 
-Current Weather Card
+This is a weather forecast application that allows the user to search for current and upcoming weather in cities in the United States. This application can be used for vacation planning, or just to check your current city's weather conditions.
 
-    When a city is entered into the search area correctly, the current weather information is generated in a card on the same row as the search button element. This includes the city name, current date, an icon depicting the current weather, then includes the temperature, humidity, wind speed and UV index of the selected city. The UV index will have a colored background based on the severity of the UV Index (green for good, yellow for average, and red for bad).
+## Table of Contents
 
-Five Day Forecast
+* [Installation](#installation)
+* [Usage](#usage)
+* [Credits](#credits)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [License](#license)
+* [Questions](#questions)
 
-    When the city is searched, a five-day forecast is generated below the current weather card. These are generated within their own cards which include the date, the weather icon associated, the temperature and humidity. The for loop only generates the following five days from the object array generated from the API call.
+## Installation
 
-Saved Cities
+Please follow the live site link to view the application: 
 
-    The cities the user searches for are generated in a button list format under the search button. Once clicked, these should generated the weather for the saved city. Still working on getting this to work, and still having issues with the local storage.
+## Usage
 
-Screenshot
+As a user, you can use the search text area to look up the U.S. city of your choice. Once the disired city is entered, the user will receive a snapshot of the current weather, as well as a five-day forecast. Once the user searches for a city, it is saved in an unordered list, where the user can click on previously searched cities to return to their specific weather conditions. 
 
-    ![image](https://user-images.githubusercontent.com/70773240/97821525-f9a1a500-1c6f-11eb-9470-23ad63136f3f.png)
+## Credits
 
-Links to Github and Live Site
+undefined
 
-    Github: https://github.com/rgr5035/Ray-Weather-App
-    Live Site: https://rgr5035.github.io/Ray-Weather-App/
+## Contributing
+
+Please send any contributions to Robby Ray (contact information below)
+
+## Tests
+
+N/A
+
+## License
+
+This project is MIT licensed.
+
+## Questions
+
+For more information about this application, or if you have any additional questions, do not hesitate to reach out to me via GitHub or E-mail.
+
+- [Github](https://www.github.com/rgr5035)
+- [Email](mailto:rgr5035@gmail.com)
